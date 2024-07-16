@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "375f6950-f398-4cfe-8a7a-f650e1e6e03c",
+		"name": "Task-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27431788"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Ali\",\r\n    \"email\":\"ali@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/user/signUp"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ali@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/user/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "addCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWM0YzQ3Y2I0MTAyZjE1MmM5NDM1NiIsImVtYWlsIjoia2hhbGVkQGdtYWlsLmNvbSIsImlhdCI6MTY4OTM2MDQwNH0.xLmj7DPkuvjb4bc5O7Ga_zovvxn4DLKb8Yf5CeZzVVA"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaUBnbWFpbC5jb20iLCJpZCI6IjY2OTFkNmY5MzU4MGM1MGI0NWM4MTA1MSIsImlhdCI6MTcyMDgzMzk4OH0.ALAs290TM50ALUMRA7UfJ2MNml9vJtAqapgA2YHzWCw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"First\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/category/addCategory"
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getUserCategories",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getCategoryById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaUBnbWFpbC5jb20iLCJfaWQiOiI2NjkxZDZmOTM1ODBjNTBiNDVjODEwNTEiLCJpYXQiOjE3MjA4Mzg3NzJ9.SjuxqrTgIPRZsJ1qocFAO6Q9X85pZvqaSjUBxGEZ7ZU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/category/getCategoryById?categoryId=6691ea7f49e38b92d7034f6b",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"getCategoryById"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "6691ea7f49e38b92d7034f6b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "addTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"task1\",\r\n    \"type\": \"text\",\r\n    \"content\": \"first task\",\r\n    \"shared\": false,\r\n    \"category\": \"66956e5b9856466ada2ff182\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/tasks/addTask"
+					},
+					"response": []
+				},
+				{
+					"name": "getTask",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwiX2lkIjoiNjY5MWQ3MjgzNTgwYzUwYjQ1YzgxMDVhIiwiaWF0IjoxNzIxMTMzMjQ5fQ.6_-J6HkdxReP3xgD425RJI_StgQcJdSky52qUPkFsss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/task/getTasks?categoryName=day3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"getTasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "categoryName",
+									"value": "day3"
+								},
+								{
+									"key": "shared",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublicTasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwiX2lkIjoiNjY5MWQ3MjgzNTgwYzUwYjQ1YzgxMDVhIiwiaWF0IjoxNzIxMTMzMjQ5fQ.6_-J6HkdxReP3xgD425RJI_StgQcJdSky52qUPkFsss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/task/getPublicTasks?categoryName=day3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"getPublicTasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "shared",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "categoryName",
+									"value": "day3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTaskById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwiX2lkIjoiNjY5MWQ3MjgzNTgwYzUwYjQ1YzgxMDVhIiwiaWF0IjoxNzIxMTMzMjQ5fQ.6_-J6HkdxReP3xgD425RJI_StgQcJdSky52qUPkFsss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/task/getPublicTasks?categoryName=day3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"getPublicTasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "shared",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "categoryName",
+									"value": "day3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTask",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwiX2lkIjoiNjY5MWQ3MjgzNTgwYzUwYjQ1YzgxMDVhIiwiaWF0IjoxNzIxMTMzMjQ5fQ.6_-J6HkdxReP3xgD425RJI_StgQcJdSky52qUPkFsss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/task/getPublicTasks?categoryName=day3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"getPublicTasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "shared",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "categoryName",
+									"value": "day3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTask",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "test eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFAZ21haWwuY29tIiwiX2lkIjoiNjY5MWQ3MjgzNTgwYzUwYjQ1YzgxMDVhIiwiaWF0IjoxNzIxMTMzMjQ5fQ.6_-J6HkdxReP3xgD425RJI_StgQcJdSky52qUPkFsss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/task/getPublicTasks?categoryName=day3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"getPublicTasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "shared",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "categoryName",
+									"value": "day3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
